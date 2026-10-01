@@ -1,7 +1,5 @@
-import os
 import tempfile
 
-from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.actions import IncludeLaunchDescription
@@ -51,6 +49,9 @@ def generate_launch_description():
                                           default_value="",
                                           description="Prefix for AR4 tf_tree")
     tf_prefix = LaunchConfiguration("tf_prefix")
+    world_arg = DeclareLaunchArgument("world",
+                                      default_value="empty.world",
+                                      description="World file in annin_ar4_gazebo/worlds")
 
     initial_joint_controllers = ControllerConfigSubstitution(
         PathJoinSubstitution([
@@ -114,8 +115,10 @@ def generate_launch_description():
     )
 
     # Gazebo nodes
-    world = os.path.join(get_package_share_directory('annin_ar4_gazebo'),
-                         'worlds', 'empty.world')
+    world = PathJoinSubstitution([
+        FindPackageShare("annin_ar4_gazebo"), "worlds",
+        LaunchConfiguration("world")
+    ])
 
     # Bridge
     gazebo_bridge = Node(
@@ -129,7 +132,7 @@ def generate_launch_description():
             [FindPackageShare("ros_gz_sim"), "/launch", "/gz_sim.launch.py"]),
         launch_arguments={
             'gz_args':
-            f'-r -v 4 --physics-engine gz-physics-bullet-featherstone-plugin {world}',
+            ['-r -v 4 --physics-engine gz-physics-bullet-featherstone-plugin ', world],
             'on_exit_shutdown': 'True'
         }.items())
 
@@ -144,6 +147,7 @@ def generate_launch_description():
     return LaunchDescription([
         ar_model_arg,
         tf_prefix_arg,
+        world_arg,
         gazebo_bridge,
         gazebo,
         gazebo_spawn_robot,
