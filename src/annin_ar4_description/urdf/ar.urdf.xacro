@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg ar_model)">
-  <xacro:arg name="tf_prefix" default="" />
-  <xacro:arg name="include_gripper" default="true"/>
+  <!-- <xacro:arg name="tf_prefix" default="" />
+  <xacro:arg name="include_gripper" default="true"/> -->
 
-  <xacro:include filename="$(find annin_ar4_description)/urdf/ar_macro.xacro"/>
+  <!-- <xacro:include filename="$(find annin_ar4_description)/urdf/ar_macro.xacro"/> -->
   <xacro:include filename="$(find annin_ar4_description)/urdf/annin_ar4_geometry.urdf"/>
 
-  <link name="world" />
+  <!-- <link name="world" />
   <xacro:ar_robot
     tf_prefix="$(arg tf_prefix)"
     parent="world"
@@ -21,5 +21,5 @@
       tf_prefix="$(arg tf_prefix)"
       parent="$(arg tf_prefix)ee_link"
     />
-  </xacro:if>
+  </xacro:if> -->
 </robot>
