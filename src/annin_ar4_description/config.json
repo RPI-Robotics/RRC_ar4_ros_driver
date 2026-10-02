@@ -1,0 +1,28 @@
+{
+    "url": "https://cad.onshape.com/documents/71a6e6ac5054656ec8ae7be3/w/15da3de6b39094e09f55dc5d/e/b69991727d685d56a05e7c46",
+    "output_format": "urdf",
+    "output_filename": "annin_ar4_geometry",
+    "assets_directory": "meshes",
+
+    "configuration": "default",
+    "robot_name": "annin_ar4",
+    "package_name": "annin_ar4_description",
+    
+    "set_zero_mass_to_fixed": true,
+
+    "joint_properties": {
+      
+    },
+    
+    "merge_stls": true,
+    
+    "simplify_stls": true,
+    "max_stl_size": 3,
+
+    "use_scads": true,
+    "pure_shape_dilatation": 0.0,
+
+    "add_dummy_base_link": true
+
+
+}

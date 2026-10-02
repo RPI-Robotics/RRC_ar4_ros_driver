@@ -4,6 +4,7 @@
   <xacro:arg name="include_gripper" default="true"/>
 
   <xacro:include filename="$(find annin_ar4_description)/urdf/ar_macro.xacro"/>
+  <xacro:include filename="$(find annin_ar4_description)/urdf/annin_ar4_geometry.urdf"/>
 
   <link name="world" />
   <xacro:ar_robot
