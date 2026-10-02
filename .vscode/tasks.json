@@ -6,7 +6,7 @@
     {
       "label": "Start Gazebo Sim",
       "type": "shell",
-      "command": "source install/setup.bash && ros2 launch annin_ar4_gazebo gazebo.launch.py",
+      "command": "source install/setup.bash & ros2 launch annin_ar4_gazebo gazebo.launch.py",
       "problemMatcher": []
     },
     {
