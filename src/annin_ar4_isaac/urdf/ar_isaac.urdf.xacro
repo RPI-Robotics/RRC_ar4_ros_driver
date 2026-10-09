@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg ar_model)">
+  <xacro:include filename="$(find annin_ar4_description)/urdf/ar_macro.xacro" />
+  <xacro:include filename="$(find annin_ar4_description)/urdf/ar_gripper_macro.xacro" />
+
+  <xacro:arg name="tf_prefix" default="" />
+  <xacro:arg name="isaac_host" default="host.docker.internal" />
+  <xacro:arg name="isaac_port" default="50555" />
+
+  <link name="world" />
+  <xacro:ar_robot
+    tf_prefix="$(arg tf_prefix)"
+    parent="world"
+    robot_parameters_file="$(find annin_ar4_description)/config/$(arg ar_model).yaml"
+  >
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:ar_robot>
+  <xacro:ar_gripper
+    tf_prefix="$(arg tf_prefix)"
+    parent="$(arg tf_prefix)ee_link"
+  />
+
+  <xacro:macro name="isaac_hardware" params="publish_clock">
+    <hardware>
+      <plugin>annin_ar4_isaac/IsaacTcpSystem</plugin>
+      <param name="isaac_host">$(arg isaac_host)</param>
+      <param name="isaac_port">$(arg isaac_port)</param>
+      <param name="publish_clock">${publish_clock}</param>
+    </hardware>
+  </xacro:macro>
+
+  <xacro:macro name="isaac_arm_joint" params="name">
+    <joint name="$(arg tf_prefix)${name}">
+      <command_interface name="position" />
+      <command_interface name="velocity" />
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+    </joint>
+  </xacro:macro>
+
+  <!-- Arm and gripper are separate systems, as on the real robot. The arm
+       system also publishes /clock from Isaac Sim's simulation time. -->
+  <ros2_control name="$(arg ar_model)" type="system">
+    <xacro:isaac_hardware publish_clock="true" />
+    <xacro:isaac_arm_joint name="joint_1" />
+    <xacro:isaac_arm_joint name="joint_2" />
+    <xacro:isaac_arm_joint name="joint_3" />
+    <xacro:isaac_arm_joint name="joint_4" />
+    <xacro:isaac_arm_joint name="joint_5" />
+    <xacro:isaac_arm_joint name="joint_6" />
+  </ros2_control>
+
+  <ros2_control name="ARGripperIsaacSystem" type="system">
+    <xacro:isaac_hardware publish_clock="false" />
+    <joint name="$(arg tf_prefix)gripper_jaw1_joint">
+      <command_interface name="position" />
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+    </joint>
+    <joint name="$(arg tf_prefix)gripper_jaw2_joint">
+      <param name="mimic">$(arg tf_prefix)gripper_jaw1_joint</param>
+      <param name="multiplier">1</param>
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+    </joint>
+  </ros2_control>
+</robot>

@@ -1,0 +1,9 @@
+<library path="annin_ar4_isaac_hw">
+  <class name="annin_ar4_isaac/IsaacTcpSystem"
+         type="annin_ar4_isaac::IsaacTcpSystem"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Exchanges joint commands and states with Isaac Sim over TCP.
+    </description>
+  </class>
+</library>
