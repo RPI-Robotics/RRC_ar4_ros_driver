@@ -4,7 +4,7 @@ import tempfile
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.actions import IncludeLaunchDescription
+from launch.actions import IncludeLaunchDescription, SetEnvironmentVariable
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitution import Substitution
 from launch.substitutions import (
@@ -14,7 +14,7 @@ from launch.substitutions import (
     LaunchConfiguration,
 )
 from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
+from launch_ros.substitutions import FindPackageShare, FindPackagePrefix
 
 
 class ControllerConfigSubstitution(Substitution):
@@ -131,10 +131,16 @@ def generate_launch_description():
         arguments=["-name", "ar4", "-topic", "robot_description"],
         output="screen",
     )
+    
+    share_parent = PathJoinSubstitution([FindPackagePrefix("annin_ar4_description"), "share"])
+    set_gz_path = SetEnvironmentVariable("GZ_SIM_RESOURCE_PATH", share_parent)
+    set_ign_path = SetEnvironmentVariable("IGN_GAZEBO_RESOURCE_PATH", share_parent)
 
     return LaunchDescription([
         ar_model_arg,
         tf_prefix_arg,
+        set_gz_path,
+        set_ign_path,
         gazebo_bridge,
         gazebo,
         gazebo_spawn_robot,

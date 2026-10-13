@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://wiki.ros.org/xacro" name="ar4">
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="annin_ar4">
   <!-- <xacro:arg name="tf_prefix" default="" />
   <xacro:arg name="include_gripper" default="true"/> -->
+
+  <!-- <xacro:arg name="tf_prefix" default="" /> -->
 
   <!-- <xacro:include filename="$(find annin_ar4_description)/urdf/ar_macro.xacro"/> -->
   <xacro:include filename="$(find annin_ar4_description)/urdf/annin_ar4_geometry.urdf"/>
@@ -36,4 +38,16 @@
       parent="$(arg tf_prefix)ee_link"
     />
   </xacro:if> -->
+  <ros2_control name="GazeboSystem" type="system">
+  <hardware>
+    <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+  </hardware>
+  <joint name="head_swivel" />
+</ros2_control>
+
+<gazebo>
+  <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+    <parameters>$(find urdf_sim_tutorial)/config/09a-minimal.yaml</parameters>
+  </plugin>
+</gazebo>
 </robot>
