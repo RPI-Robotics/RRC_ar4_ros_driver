@@ -68,12 +68,12 @@ class arm_controller {
         plan_and_execute(gripper, "gripper open");
 
         // Arm SAFE
-        RCLCPP_INFO(_node->get_logger(), "Arm -> SAFE (joint target)");
+        RCLCPP_INFO(_node->get_logger(), "Arm -> SAFE ");
         set_joint_target(safe, "SAFE");
         plan_and_execute(arm, "arm SAFE");
 
         // Arm PICK
-        RCLCPP_INFO(_node->get_logger(), "Arm -> PICK (joint target)");
+        RCLCPP_INFO(_node->get_logger(), "Arm -> PICK ");
         set_joint_target(pick, "PICK");
         plan_and_execute(arm, "arm PICK");
 
@@ -82,21 +82,21 @@ class arm_controller {
         gripper.setNamedTarget("closed");
         plan_and_execute(gripper, "gripper closed");
 
-        // Return SAFE
+        // Return to SAFE
         RCLCPP_INFO(_node->get_logger(), "Arm -> SAFE (return)");
         set_joint_target(safe, "SAFE(return)");
         plan_and_execute(arm, "arm SAFE (return)");
-            
-        // Place back in PICK position
-        RCLCPP_INFO(_node->get_logger(), "Arm -> PICK (joint target)");
-        set_joint_target(pick, "PICK");
-        plan_and_execute(arm, "arm PICK");
 
-        // re-open at end
+        // Go to PLACE
+        RCLCPP_INFO(_node->get_logger(), "Arm -> PLACE ");
+        set_joint_target(place, "PLACE");
+        plan_and_execute(arm, "arm PLACE");
+        
+        // Re-open gripper
         RCLCPP_INFO(_node->get_logger(), "Gripper -> open (end)");
         gripper.setNamedTarget("open");
         plan_and_execute(gripper, "gripper open (end)");
-            
+        
         // Return SAFE
         RCLCPP_INFO(_node->get_logger(), "Arm -> SAFE (return)");
         set_joint_target(safe, "SAFE(return)");
@@ -114,7 +114,7 @@ class arm_controller {
     const std::vector<std::string> joint_names = {"joint_1","joint_2","joint_3","joint_4","joint_5","joint_6"};
     const std::vector<double> safe = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
     const std::vector<double> pick = {0.0, 1.0647, 0.1047, 0.0, 0.4014, 0.0};
-    const std::vector<double> place = {0.5, 1.0647, 0.1047, 0.0, 0.4014, 0.0};
+    const std::vector<double> place = {0.5, 1.0647, 0.1047, 0.0, 0.4014, 0.0}; //not used as of now 
 };
 
 
@@ -123,7 +123,7 @@ int main(int argc, char** argv){
 
     try {
         std::shared_ptr node = std::make_shared<rclcpp::Node>("ar4_simple_pick_and_place");
-        arm_controller ac(node,5.0,10,0.3,0.3,2.0,5,1.0,1.0);
+        arm_controller ac(node,5.0,10,0.3,0.3,2.0,5,1.0,1.0); //supposedly good demo values, from the simple_pick_place_mgi.cpp in the example files
         ac.simple_pp_routine();
     } 
     catch (const std::exception& e) {
