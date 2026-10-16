@@ -5,7 +5,7 @@
 #include <map>
 
 #include "rclcpp/rclcpp.hpp"
-#include "moveit/move_group_interface/move_group_interface.h"
+#include "moveit/move_group_interface/move_group_interface.hpp"
 
 
 class arm_controller {
@@ -13,15 +13,9 @@ class arm_controller {
     public: 
 
 
-    arm_controller(std::shared_ptr<rclcpp::Node> __node, 
+    arm_controller(std::shared_ptr<rclcpp::Node> node, 
         double a_pt, unsigned int a_npa, double a_mvsf, double a_masf,
-        double g_pt, unsigned int g_npa, double g_mvsf, double g_masf) : _node(__node),arm(_node,"ar_manipulator"), gripper(_node, "ar_gripper") {
-    
-        
-        
-        //should probably use unique ptrs or something else but i don't like them
-        arm = moveit::planning_interface::MoveGroupInterface(_node, "ar_manipulator");
-        gripper = moveit::planning_interface::MoveGroupInterface(_node, "ar_gripper");
+        double g_pt, unsigned int g_npa, double g_mvsf, double g_masf) : _node(std::move(node)),arm(_node,"ar_manipulator"), gripper(_node, "ar_gripper") {
 
         arm.setPlanningTime(a_pt);
         arm.setNumPlanningAttempts(a_npa);
@@ -127,22 +121,21 @@ class arm_controller {
 int main(int argc, char** argv){
     rclcpp::init(argc, argv); 
 
-    int result = 0;
     try {
         std::shared_ptr node = std::make_shared<rclcpp::Node>("ar4_simple_pick_and_place");
-        arm_controller* ac = new arm_controller(node,5.0,10,0.3,0.3,2.0,5,1.0,1.0);
-        ac->simple_pp_routine();
-        delete ac;
+        arm_controller ac(node,5.0,10,0.3,0.3,2.0,5,1.0,1.0);
+        ac.simple_pp_routine();
     } 
     catch (const std::exception& e) {
         RCLCPP_ERROR(
             rclcpp::get_logger("arm_controller"),
             "ERROR: %s", e.what()
         );
-        result= 1;
+        rclcpp::shutdown();
+        return 1;
     }
     
     rclcpp::shutdown();
 
-    return result;
+    return 0;
 }

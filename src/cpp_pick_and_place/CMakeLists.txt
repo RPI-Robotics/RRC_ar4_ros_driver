@@ -11,6 +11,16 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+find_package(rclcpp REQUIRED)
+find_package(moveit_ros_planning_interface REQUIRED)
+
+add_executable(cpp_pick_and_place src/simple_move.cpp)
+ament_target_dependencies(cpp_pick_and_place rclcpp moveit_ros_planning_interface)
+
+install(TARGETS cpp_pick_and_place DESTINATION lib/${PROJECT_NAME})
+
+
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
