@@ -11,11 +11,16 @@
 class arm_controller {
 
     public: 
-
-
+    
     arm_controller(std::shared_ptr<rclcpp::Node> node, 
         double a_pt, unsigned int a_npa, double a_mvsf, double a_masf,
         double g_pt, unsigned int g_npa, double g_mvsf, double g_masf) : _node(std::move(node)),arm(_node,"ar_manipulator"), gripper(_node, "ar_gripper") {
+        
+        _node->declare_parameter("pick_dest", std::vector<double>{0.0, 1.0647, 0.1047, 0.0, 0.4014, 0.0});
+        _node->declare_parameter("place_dest", std::vector<double>{0.5, 1.0647, 0.1047, 0.0, 0.4014, 0.0});
+
+        pick = _node->get_parameter("pick_dest").as_double_array();
+        place = _node->get_parameter("place_dest").as_double_array();
 
         arm.setPlanningTime(a_pt);
         arm.setNumPlanningAttempts(a_npa);
@@ -112,9 +117,9 @@ class arm_controller {
     moveit::planning_interface::MoveGroupInterface gripper;
 
     const std::vector<std::string> joint_names = {"joint_1","joint_2","joint_3","joint_4","joint_5","joint_6"};
-    const std::vector<double> safe = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-    const std::vector<double> pick = {0.0, 1.0647, 0.1047, 0.0, 0.4014, 0.0};
-    const std::vector<double> place = {0.5, 1.0647, 0.1047, 0.0, 0.4014, 0.0}; //not used as of now 
+    const std::vector<double> safe = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0}; //this won't really ever change so it doesn't need a parameter
+    std::vector<double> pick;
+    std::vector<double> place;
 };
 
 
