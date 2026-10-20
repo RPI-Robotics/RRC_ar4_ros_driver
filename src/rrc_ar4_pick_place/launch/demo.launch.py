@@ -1,3 +1,6 @@
+# to execute, run the command inside your ros2_ws with Gazebo and MoveIt sim running:
+#   ros2 launch rrc_ar4_pick_place demo.launch.py use_sim_time:=true
+
 import os
 import yaml
 
