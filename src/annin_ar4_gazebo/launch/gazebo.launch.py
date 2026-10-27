@@ -149,3 +149,5 @@ def generate_launch_description():
         initial_joint_controller_spawner_started,
         gripper_joint_controller_spawner_started,
     ])
+    
+    
