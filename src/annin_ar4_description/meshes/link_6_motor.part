@@ -1,13 +1,13 @@
 {
     "configuration": "default",
     "documentId": "71a6e6ac5054656ec8ae7be3",
-    "documentMicroversion": "25530653a96cf7cea2a11a4a",
+    "documentMicroversion": "c87c8a7d40850eb36a49647f",
     "elementId": "01c7bebaeb771f50302cdc6c",
     "fullConfiguration": "default",
-    "id": "M3tXXVPJgkBsdF6xp",
+    "id": "MkrTDTstyl2+hTcZ+",
     "isStandardContent": false,
-    "name": "AR4-MK4 J4 Timing Hub-1 <1>",
-    "partId": "RZBL",
+    "name": "Link_6_Motor <1>",
+    "partId": "RZBD",
     "suppressed": false,
     "type": "Part"
 }

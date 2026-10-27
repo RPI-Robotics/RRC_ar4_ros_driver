@@ -1,13 +1,13 @@
 {
     "configuration": "default",
     "documentId": "71a6e6ac5054656ec8ae7be3",
-    "documentMicroversion": "25530653a96cf7cea2a11a4a",
+    "documentMicroversion": "c87c8a7d40850eb36a49647f",
     "elementId": "01c7bebaeb771f50302cdc6c",
     "fullConfiguration": "default",
-    "id": "MD5xNfg4DTZhPW/8u",
+    "id": "MWSdxVQ7YH+OC/VBE",
     "isStandardContent": false,
-    "name": "AR4-MK4 J6 Bearing Cap-1 <1>",
-    "partId": "RmBD",
+    "name": "Base_Turret_Housing <1>",
+    "partId": "JcD",
     "suppressed": false,
     "type": "Part"
 }

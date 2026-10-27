@@ -1,13 +1,13 @@
 {
     "configuration": "default",
     "documentId": "71a6e6ac5054656ec8ae7be3",
-    "documentMicroversion": "25530653a96cf7cea2a11a4a",
+    "documentMicroversion": "c87c8a7d40850eb36a49647f",
     "elementId": "01c7bebaeb771f50302cdc6c",
     "fullConfiguration": "default",
-    "id": "MegjsRz/nGzSVxZ7x",
+    "id": "MhwGz64eqkACXyZeA",
     "isStandardContent": false,
-    "name": "Link 2 <3>",
-    "partId": "JzH",
+    "name": "Baseplate_USB_Part <7>",
+    "partId": "RACD",
     "suppressed": false,
     "type": "Part"
 }

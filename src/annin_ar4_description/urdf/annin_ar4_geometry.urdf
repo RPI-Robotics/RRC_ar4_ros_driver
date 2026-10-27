@@ -19,202 +19,160 @@
         <color rgba="0.600346 0.770857 0.873164 1"/>
       </material>
     </visual>
-    <collision>
-      <origin xyz="-0.0994665 0.0173301 0.0783025" rpy="0 -0 0"/>
-      <geometry>
-        <mesh filename="package://annin_ar4_description/meshes/merged/baseplate_collision.stl"/>
-      </geometry>
-    </collision>
   </link>
-  <!-- Link ar4_mk4_j1_turret_housing_1 -->
-  <link name="ar4_mk4_j1_turret_housing_1">
+  <!-- Link base_turret_housing -->
+  <link name="base_turret_housing">
     <inertial>
-      <origin xyz="0.0517132 -0.00791166 -0.108439" rpy="0 0 0"/>
-      <mass value="2.54248"/>
-      <inertia ixx="0.00879635" ixy="-0.00198318" ixz="0.00351832" iyy="0.0104216" iyz="0.000521188" izz="0.00909085"/>
+      <origin xyz="-0.0463965 -0.0242033 -0.108439" rpy="0 0 0"/>
+      <mass value="2.54104"/>
+      <inertia ixx="0.011247" ixy="-0.00137444" ixz="-0.00253118" iyy="0.00796204" iyz="-0.00249889" izz="0.00908202"/>
     </inertial>
-    <!-- Part ar4_mk4_j1_turret_housing_1_parts -->
+    <!-- Part base_turret_housing_parts -->
     <visual>
-      <origin xyz="0.0517132 -0.00791166 -0.108439" rpy="3.14159 5.93e-10 0"/>
+      <origin xyz="-0.0463965 -0.0242033 -0.108439" rpy="3.14159 5.93e-10 0"/>
       <geometry>
-        <mesh filename="package://annin_ar4_description/meshes/merged/ar4_mk4_j1_turret_housing_1_visual.stl"/>
+        <mesh filename="package://annin_ar4_description/meshes/merged/base_turret_housing_visual.stl"/>
       </geometry>
-      <material name="ar4_mk4_j1_turret_housing_1_parts_material">
-        <color rgba="0.65704 0.826265 0.927801 1"/>
+      <material name="base_turret_housing_parts_material">
+        <color rgba="0.657064 0.826274 0.9278 1"/>
       </material>
     </visual>
-    <collision>
-      <origin xyz="0.0517132 -0.00791166 -0.108439" rpy="3.14159 5.93e-10 0"/>
-      <geometry>
-        <mesh filename="package://annin_ar4_description/meshes/merged/ar4_mk4_j1_turret_housing_1_collision.stl"/>
-      </geometry>
-    </collision>
   </link>
-  <!-- Link link_2 -->
-  <link name="link_2">
+  <!-- Link link_2_part -->
+  <link name="link_2_part">
     <inertial>
       <origin xyz="-0.00116151 0.132932 0.00571963" rpy="0 0 0"/>
       <mass value="0.825114"/>
       <inertia ixx="0.00889311" ixy="7.73405e-05" ixz="-3.25413e-05" iyy="0.00144092" iyz="0.00126456" izz="0.00802357"/>
     </inertial>
-    <!-- Part link_2_parts -->
+    <!-- Part link_2_part_parts -->
     <visual>
-      <origin xyz="-0.00116151 0.132932 0.00571963" rpy="-1.5708 -0.653502 -0.349014"/>
+      <origin xyz="-0.00116151 0.132932 0.00571963" rpy="1.5708 0.0215588 1.71453"/>
       <geometry>
-        <mesh filename="package://annin_ar4_description/meshes/merged/link_2_visual.stl"/>
+        <mesh filename="package://annin_ar4_description/meshes/merged/link_2_part_visual.stl"/>
       </geometry>
-      <material name="link_2_parts_material">
+      <material name="link_2_part_parts_material">
         <color rgba="0.972549 0.529412 0.00392157 1"/>
       </material>
     </visual>
-    <collision>
-      <origin xyz="-0.00116151 0.132932 0.00571963" rpy="-1.5708 -0.653502 -0.349014"/>
-      <geometry>
-        <mesh filename="package://annin_ar4_description/meshes/merged/link_2_collision.stl"/>
-      </geometry>
-    </collision>
   </link>
-  <!-- Link ar4_mk4_motor_17ls13_0404e_200h_c1_1 -->
-  <link name="ar4_mk4_motor_17ls13_0404e_200h_c1_1">
+  <!-- Link link_6_motor -->
+  <link name="link_6_motor">
     <inertial>
-      <origin xyz="0.0167554 -0.0104742 -0.0315536" rpy="0 0 0"/>
+      <origin xyz="0.0197598 5.56097e-05 -0.0315536" rpy="0 0 0"/>
       <mass value="0.841792"/>
-      <inertia ixx="0.000962097" ixy="-0.000247597" ixz="6.67995e-05" iyy="0.00117864" iyz="-1.26758e-05" izz="0.00171936"/>
+      <inertia ixx="0.00124667" ixy="-0.000204798" ixz="6.32921e-05" iyy="0.000894058" iyz="2.48385e-05" izz="0.00171936"/>
     </inertial>
-    <!-- Part ar4_mk4_motor_17ls13_0404e_200h_c1_1_parts -->
+    <!-- Part link_6_motor_parts -->
     <visual>
-      <origin xyz="0.0167554 -0.0104742 -0.0315536" rpy="1.5708 0.653502 0.349014"/>
+      <origin xyz="0.0197598 5.56097e-05 -0.0315536" rpy="-1.5708 -0.0215588 -1.71453"/>
       <geometry>
-        <mesh filename="package://annin_ar4_description/meshes/merged/ar4_mk4_motor_17ls13_0404e_200h_c1_1_visual.stl"/>
+        <mesh filename="package://annin_ar4_description/meshes/merged/link_6_motor_visual.stl"/>
       </geometry>
-      <material name="ar4_mk4_motor_17ls13_0404e_200h_c1_1_parts_material">
+      <material name="link_6_motor_parts_material">
         <color rgba="0.92179 0.779841 0.611513 1"/>
       </material>
     </visual>
-    <collision>
-      <origin xyz="0.0167554 -0.0104742 -0.0315536" rpy="1.5708 0.653502 0.349014"/>
-      <geometry>
-        <mesh filename="package://annin_ar4_description/meshes/merged/ar4_mk4_motor_17ls13_0404e_200h_c1_1_collision.stl"/>
-      </geometry>
-    </collision>
   </link>
-  <!-- Link simplified_part -->
-  <link name="simplified_part">
+  <!-- Link endeffector_part -->
+  <link name="endeffector_part">
     <inertial>
-      <origin xyz="0.00110607 0.00248075 -0.083018" rpy="0 0 0"/>
+      <origin xyz="0.00100316 0.00252412 -0.083018" rpy="0 0 0"/>
       <mass value="0.712121"/>
-      <inertia ixx="0.00219648" ixy="-0.000155949" ixz="-5.79461e-05" iyy="0.00208715" iyz="-9.12478e-05" izz="0.000725561"/>
+      <inertia ixx="0.0022091" ixy="-0.000150932" ixz="-5.41463e-05" iyy="0.00207453" iyz="-9.35525e-05" izz="0.000725561"/>
     </inertial>
-    <!-- Part simplified_part_parts -->
+    <!-- Part endeffector_part_parts -->
     <visual>
-      <origin xyz="0.00110607 0.00248075 -0.083018" rpy="1.67533 -0.914651 3.05866"/>
+      <origin xyz="0.00100316 0.00252412 -0.083018" rpy="-0.0442752 1.11747 1.52155"/>
       <geometry>
-        <mesh filename="package://annin_ar4_description/meshes/merged/simplified_part_visual.stl"/>
+        <mesh filename="package://annin_ar4_description/meshes/merged/endeffector_part_visual.stl"/>
       </geometry>
-      <material name="simplified_part_parts_material">
+      <material name="endeffector_part_parts_material">
         <color rgba="0.498039 0.498039 0.498039 1"/>
       </material>
     </visual>
-    <collision>
-      <origin xyz="0.00110607 0.00248075 -0.083018" rpy="1.67533 -0.914651 3.05866"/>
-      <geometry>
-        <mesh filename="package://annin_ar4_description/meshes/merged/simplified_part_collision.stl"/>
-      </geometry>
-    </collision>
   </link>
-  <!-- Link ar4_mk4_14hs11_1004d_egs20_ar4_1 -->
-  <link name="ar4_mk4_14hs11_1004d_egs20_ar4_1">
+  <!-- Link gripper_motor -->
+  <link name="gripper_motor">
     <inertial>
-      <origin xyz="0.00366963 0.0138759 0.0474159" rpy="0 0 0"/>
+      <origin xyz="-0.014351 -0.00023186 0.0474159" rpy="0 0 0"/>
       <mass value="0.314103"/>
-      <inertia ixx="0.000211306" ixy="-2.66317e-05" ixz="4.54274e-06" iyy="0.000130272" iyz="1.79613e-05" izz="0.000172846"/>
+      <inertia ixx="0.000122328" ixy="1.55585e-06" ixz="-1.85202e-05" iyy="0.00021925" iyz="-4.99692e-07" izz="0.000172846"/>
     </inertial>
-    <!-- Part ar4_mk4_14hs11_1004d_egs20_ar4_1_parts -->
+    <!-- Part gripper_motor_parts -->
     <visual>
-      <origin xyz="0.00366963 0.0138759 0.0474159" rpy="-2.5619 -0.338668 -2.5682"/>
+      <origin xyz="-0.014351 -0.00023186 0.0474159" rpy="2.47953 0.378016 -0.256483"/>
       <geometry>
-        <mesh filename="package://annin_ar4_description/meshes/merged/ar4_mk4_14hs11_1004d_egs20_ar4_1_visual.stl"/>
+        <mesh filename="package://annin_ar4_description/meshes/merged/gripper_motor_visual.stl"/>
       </geometry>
-      <material name="ar4_mk4_14hs11_1004d_egs20_ar4_1_parts_material">
+      <material name="gripper_motor_parts_material">
         <color rgba="0.69002 0.773489 0.820789 1"/>
       </material>
     </visual>
-    <collision>
-      <origin xyz="0.00366963 0.0138759 0.0474159" rpy="-2.5619 -0.338668 -2.5682"/>
-      <geometry>
-        <mesh filename="package://annin_ar4_description/meshes/merged/ar4_mk4_14hs11_1004d_egs20_ar4_1_collision.stl"/>
-      </geometry>
-    </collision>
   </link>
-  <!-- Link simplified_part_2 -->
-  <link name="simplified_part_2">
+  <!-- Link gripper_part -->
+  <link name="gripper_part">
     <inertial>
       <origin xyz="6.26549e-06 0.000241513 -0.0230231" rpy="0 0 0"/>
       <mass value="0.115892"/>
       <inertia ixx="2.78554e-05" ixy="-7.6839e-08" ixz="-1.941e-09" iyy="4.28172e-05" iyz="-5.34906e-07" izz="3.11918e-05"/>
     </inertial>
-    <!-- Part simplified_part_2_parts -->
+    <!-- Part gripper_part_parts -->
     <visual>
-      <origin xyz="6.26549e-06 0.000241513 -0.0230231" rpy="2.50937 0.783953 -2.5539"/>
+      <origin xyz="6.26549e-06 0.000241513 -0.0230231" rpy="-0.040189 1.11632 -2.89739"/>
       <geometry>
-        <mesh filename="package://annin_ar4_description/meshes/merged/simplified_part_2_visual.stl"/>
+        <mesh filename="package://annin_ar4_description/meshes/merged/gripper_part_visual.stl"/>
       </geometry>
-      <material name="simplified_part_2_parts_material">
+      <material name="gripper_part_parts_material">
         <color rgba="0.980392 0.713725 0.00392157 1"/>
       </material>
     </visual>
-    <collision>
-      <origin xyz="6.26549e-06 0.000241513 -0.0230231" rpy="2.50937 0.783953 -2.5539"/>
-      <geometry>
-        <mesh filename="package://annin_ar4_description/meshes/merged/simplified_part_2_collision.stl"/>
-      </geometry>
-    </collision>
   </link>
-  <!-- Joint from ar4_mk4_14hs11_1004d_egs20_ar4_1 to simplified_part_2 -->
+  <!-- Joint from gripper_motor to gripper_part -->
   <joint name="endeffector" type="revolute">
-    <origin xyz="-0.00511492 -0.0182986 0.0433" rpy="-1.5708 -0.0993423 -0.272569"/>
-    <parent link="ar4_mk4_14hs11_1004d_egs20_ar4_1"/>
-    <child link="simplified_part_2"/>
+    <origin xyz="0.019 4.04422e-05 0.0433" rpy="-1.5708 -1.24286 1.57292"/>
+    <parent link="gripper_motor"/>
+    <child link="gripper_part"/>
     <axis xyz="0 0 1"/>
     <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
   </joint>
-  <!-- Joint from simplified_part to ar4_mk4_14hs11_1004d_egs20_ar4_1 -->
+  <!-- Joint from endeffector_part to gripper_motor -->
   <joint name="endeffector_mount" type="revolute">
-    <origin xyz="0.0269364 0.0347913 -0.172" rpy="2.22962 1.5708 0"/>
-    <parent link="simplified_part"/>
-    <child link="ar4_mk4_14hs11_1004d_egs20_ar4_1"/>
+    <origin xyz="0.0254835 0.0358691 -0.172" rpy="2.18851 1.5708 0"/>
+    <parent link="endeffector_part"/>
+    <child link="gripper_motor"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-0.25103" upper="3.93776"/>
+    <limit effort="10" velocity="10" lower="-2.09652" upper="2.09227"/>
   </joint>
-  <!-- Joint from ar4_mk4_motor_17ls13_0404e_200h_c1_1 to simplified_part -->
+  <!-- Joint from link_6_motor to endeffector_part -->
   <joint name="link3_to_end_effector_mount" type="revolute">
-    <origin xyz="-0.0463871 -0.020311 -0.0362" rpy="-2.72888 -1.5708 0"/>
-    <parent link="ar4_mk4_motor_17ls13_0404e_200h_c1_1"/>
-    <child link="simplified_part"/>
+    <origin xyz="-0.0284498 -0.0418916 -0.0362" rpy="-2.16738 -1.5708 0"/>
+    <parent link="link_6_motor"/>
+    <child link="endeffector_part"/>
     <axis xyz="0 0 1"/>
     <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
   </joint>
-  <!-- Joint from link_2 to ar4_mk4_motor_17ls13_0404e_200h_c1_1 -->
+  <!-- Joint from link_2_part to link_6_motor -->
   <joint name="link2_to_link3" type="revolute">
-    <origin xyz="0 0.305 0.015" rpy="3.14159 -0 -0"/>
-    <parent link="link_2"/>
-    <child link="ar4_mk4_motor_17ls13_0404e_200h_c1_1"/>
+    <origin xyz="0 0.305 0.015" rpy="3.14159 -0 0"/>
+    <parent link="link_2_part"/>
+    <child link="link_6_motor"/>
     <axis xyz="0 0 1"/>
     <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
   </joint>
-  <!-- Joint from ar4_mk4_j1_turret_housing_1 to link_2 -->
+  <!-- Joint from base_turret_housing to link_2_part -->
   <joint name="link1_to_link2" type="revolute">
-    <origin xyz="0.0202569 -0.0790539 -0.143075" rpy="-1.5708 0.349014 -0.653502"/>
-    <parent link="ar4_mk4_j1_turret_housing_1"/>
-    <child link="link_2"/>
+    <origin xyz="-0.0630431 0.0518211 -0.143075" rpy="-1.5708 1.42706 3.12003"/>
+    <parent link="base_turret_housing"/>
+    <child link="link_2_part"/>
     <axis xyz="0 0 1"/>
     <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
   </joint>
-  <!-- Joint from baseplate to ar4_mk4_j1_turret_housing_1 -->
+  <!-- Joint from baseplate to base_turret_housing -->
   <joint name="base_to_link1" type="revolute">
     <origin xyz="0.0716069 0.0168825 0.0570797" rpy="-3.14159 5.93e-10 0"/>
     <parent link="baseplate"/>
-    <child link="ar4_mk4_j1_turret_housing_1"/>
+    <child link="base_turret_housing"/>
     <axis xyz="0 0 1"/>
     <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
   </joint>
