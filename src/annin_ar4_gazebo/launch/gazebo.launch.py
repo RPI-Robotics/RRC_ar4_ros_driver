@@ -65,7 +65,16 @@ def generate_launch_description():
             FindPackageShare("annin_ar4_description"),
             "urdf",
             "ar.urdf.xacro",
-        ])
+        ]),
+        " ",
+        "ar_model:=",
+        ar_model_config,
+        " ",
+        "tf_prefix:=",
+        tf_prefix,
+        " ",
+        "simulation_controllers:=",
+        initial_joint_controllers,
     ])
     robot_description = {"robot_description": robot_description_content}
 
@@ -128,7 +137,7 @@ def generate_launch_description():
     gazebo_spawn_robot = Node(
         package="ros_gz_sim",
         executable="create",
-        arguments=["-name", "ar4", "-topic", "robot_description"],
+        arguments=["-name", ar_model_config, "-topic", "robot_description"],
         output="screen",
     )
     
