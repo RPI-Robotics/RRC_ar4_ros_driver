@@ -1,49 +1,48 @@
 {
-  "name": "ROS 2 Development Container",
-  "privileged": true,
-  "build": {
-    "dockerfile": "Dockerfile",
-    "args": {
-      "USERNAME": "ros_user"
-    }
-  },
-  "workspaceFolder": "/home/ros2_ws",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/home/ros2_ws,type=bind",
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-vscode.cpptools",
-        "ms-vscode.cpptools-themes",
-        "twxs.cmake",
-        "donjayamanne.python-extension-pack",
-        "eamodio.gitlens",
-        "Ranch-Hand-Robotics.rde-pack",
-        "ms-vsliveshare.vsliveshare",
-        "jebbs.plantuml"
-      ]
-    }
-  },
-  "containerEnv": {
-    "DISPLAY": "${env:DISPLAY}",
-    "ROS_AUTOMATIC_DISCOVERY_RANGE": "SUBNET",
-    "ROS_DOMAIN_ID": "42",
-    "RMW_IMPLEMENTATION": "rmw_cyclonedds_cpp",
-    "GNOME_TERMINAL_SCREEN": ""
-  },
-  "runArgs": [
-    "--net=host",
-    "--pid=host",
-    "--ipc=host",
-    "-p",
-    "8765:8765"
-  ],
-  "mounts": [
-    "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
-    "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached"
-  ],
-  "remoteUser": "ros_user",
-  "postCreateCommand": ". /opt/ros/jazzy/setup.sh && sudo apt-get update && rosdep update --rosdistro=jazzy && rosdep install --from-paths src --ignore-src -r -y --rosdistro=jazzy && (rm -rf build/ install/ log/ || true) && colcon build --symlink-install",
-  "forwardPorts": [
-    8765
-  ]
+    "name": "ROS 2 Development Container",
+    "privileged": true,
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "USERNAME": "ros_user"
+        }
+    },
+    "workspaceFolder": "/home/ros2_ws",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/ros2_ws,type=bind",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-themes",
+                "twxs.cmake",
+                "donjayamanne.python-extension-pack",
+                "eamodio.gitlens",
+                "Ranch-Hand-Robotics.rde-pack",
+                "ms-vsliveshare.vsliveshare",
+                "jebbs.plantuml"
+            ]
+        }
+    },
+    "containerEnv": {
+        "DISPLAY": "${env:DISPLAY}",
+        "ROS_AUTOMATIC_DISCOVERY_RANGE": "SUBNET",
+        "ROS_DOMAIN_ID": "42",
+        "RMW_IMPLEMENTATION": "rmw_cyclonedds_cpp",
+        "GNOME_TERMINAL_SCREEN": ""
+    },
+    "runArgs": [
+        "--net=host",
+        "--pid=host",
+        "--ipc=host",
+        "-p",
+        "8765:8765"
+    ],
+    "mounts": [
+        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
+        "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached"
+    ],
+    "postCreateCommand": ". .devcontainer/setup.bash && sudo rosdep update --rosdistro=jazzy && sudo rosdep install --from-paths src --ignore-src -y --rosdistro=jazzy && sudo chown -R $(whoami) /home/ros2_ws/ && sudo chmod a+rw . -R && (rm -r build/ || true) && colcon build --symlink-install",
+    "forwardPorts": [
+        8765
+    ]
 }
