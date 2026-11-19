@@ -34,7 +34,7 @@ hardware_interface::CallbackReturn IsaacTcpSystem::on_init(
   logger_ = rclcpp::get_logger("isaac_tcp_system." + info_.name);
 
   host_ = get_param(info_, "isaac_host", "host.docker.internal");
-  port_ = get_param(info_, "isaac_port", "50555");
+  port_ = get_param(info_, "isaac_port", "15555");
 
   const size_t num_joints = info_.joints.size();
   position_states_.assign(num_joints, 0.0);

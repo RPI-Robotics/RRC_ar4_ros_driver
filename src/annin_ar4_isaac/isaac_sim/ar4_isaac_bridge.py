@@ -39,7 +39,7 @@ ARM_DRIVE = {"stiffness": 400.0, "damping": 40.0, "max_force": 1000.0}
 GRIPPER_DRIVE = {"stiffness": 1000.0, "damping": 50.0, "max_force": 10.0}
 
 BRIDGE_HOST = "127.0.0.1"
-BRIDGE_PORT = 50555
+BRIDGE_PORT = 15555
 # ------------------------------------------------------------------------------
 
 

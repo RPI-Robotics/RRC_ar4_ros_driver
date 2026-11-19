@@ -9,7 +9,7 @@ DDS, so this package uses a plain TCP link instead:
 ```
 MoveIt -> joint_trajectory_controller / gripper_controller
        -> annin_ar4_isaac/IsaacTcpSystem (ros2_control plugin, container)
-       -> TCP host.docker.internal:50555
+       -> TCP host.docker.internal:15555
        -> ar4_isaac_bridge.py (Isaac Sim Script Editor, Windows)
        -> AR4 articulation
 ```
@@ -57,3 +57,12 @@ Time only advances while the simulation is playing.
 Joint drive gains, robot placement, and the bridge port are at the top of
 `ar4_isaac_bridge.py`. To change the port on the ROS side, pass
 `isaac_port:=<port>` to `isaac.launch.py`.
+
+## Troubleshooting
+
+`PermissionError: [WinError 10013]` when running the bridge script means
+Windows has reserved the port (Hyper-V, WSL2 and Docker Desktop reserve
+ranges, mostly above 49152, and the ranges can change after a reboot). List
+the reserved ranges with
+`netsh interface ipv4 show excludedportrange protocol=tcp`, pick a free port,
+and set it in `BRIDGE_PORT` and via `isaac_port:=<port>`.

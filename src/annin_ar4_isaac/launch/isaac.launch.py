@@ -88,7 +88,7 @@ def generate_launch_description():
             default_value="host.docker.internal",
             description="Host running Isaac Sim with ar4_isaac_bridge.py"),
         DeclareLaunchArgument("isaac_port",
-                              default_value="50555",
+                              default_value="15555",
                               description="TCP port of ar4_isaac_bridge.py"),
         robot_state_publisher_node,
         controller_manager_node,

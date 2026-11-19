@@ -5,7 +5,7 @@
 
   <xacro:arg name="tf_prefix" default="" />
   <xacro:arg name="isaac_host" default="host.docker.internal" />
-  <xacro:arg name="isaac_port" default="50555" />
+  <xacro:arg name="isaac_port" default="15555" />
 
   <link name="world" />
   <xacro:ar_robot
