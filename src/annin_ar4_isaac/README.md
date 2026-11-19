@@ -41,7 +41,8 @@ The bridge sends joint states and simulation time back. The plugin publishes
 
 1. In Isaac Sim, open the saved stage, run `ar4_isaac_bridge.py` from the
    Script Editor, and press **Play**.
-2. In the devcontainer, run:
+2. In the devcontainer, run the VS Code task **Start Isaac with MoveIt**
+   (Terminal > Run Task), or run:
 
    ```bash
    ros2 launch annin_ar4_isaac isaac.launch.py

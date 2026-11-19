@@ -23,5 +23,29 @@
       ],
       "problemMatcher": []
     },
+    {
+      "label": "Build workspace",
+      "type": "shell",
+      "command": "colcon build --symlink-install",
+      "problemMatcher": []
+    },
+    {
+      // ros2_control for the AR4 in Isaac Sim (replaces "Start Gazebo Sim").
+      // Isaac needs ar4_isaac_bridge.py running and Play pressed; the order
+      // doesn't matter, the plugin keeps reconnecting until Isaac is there.
+      "label": "Start Isaac Robot Control",
+      "type": "shell",
+      "command": "source install/setup.bash && ros2 launch annin_ar4_isaac isaac.launch.py",
+      "problemMatcher": []
+    },
+    {
+      // Plan and execute in RViz and the arm moves in Isaac Sim.
+      "label": "Start Isaac with MoveIt",
+      "dependsOn": [
+        "Start Isaac Robot Control",
+        "Start MoveIt",
+      ],
+      "problemMatcher": []
+    },
   ]
 }

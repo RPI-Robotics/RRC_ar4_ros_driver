@@ -41,7 +41,12 @@
     </material>
   </visual>
 
-
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 -1.5708"/>
+    <geometry>
+      <mesh filename="file://$(find annin_ar4_description)/meshes/${robot_parameters['mesh_dir']}/Link_Base_Aluminum.STL"/>
+    </geometry>
+  </collision>
 </link>
 <joint name="${tf_prefix}base_link_aluminum_joint" type="fixed">
   <parent link="${tf_prefix}base_link"/>
@@ -493,7 +498,7 @@
   <collision>
     <origin xyz="0 0 -0.0275" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find annin_ar4_description)/meshes/${robot_parameters['mesh_dir']}/Link_5_Col.STL"/>
+      <mesh filename="file://$(find annin_ar4_description)/meshes/${robot_parameters['mesh_dir']}/Link_5_Aluminum.STL"/>
     </geometry>
   </collision>
 </link>
@@ -562,7 +567,7 @@
   <collision>
     <origin xyz="0 0 -0.016" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find annin_ar4_description)/meshes/${robot_parameters['mesh_dir']}/Link_6_Col.STL"/>
+      <mesh filename="file://$(find annin_ar4_description)/meshes/${robot_parameters['mesh_dir']}/Link_6_Aluminum.STL"/>
     </geometry>
   </collision>
 </link>

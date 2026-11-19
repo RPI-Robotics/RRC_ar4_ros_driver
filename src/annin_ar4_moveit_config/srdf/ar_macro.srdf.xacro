@@ -42,6 +42,7 @@
 
 
     <!-- Adjacent collision bodies -->
+    <disable_collisions link1="${tf_prefix}base_link_aluminum" link2="${tf_prefix}link_1_aluminum" reason="Adjacent" />
     <disable_collisions link1="${tf_prefix}link_1_aluminum" link2="${tf_prefix}link_2_aluminum" reason="Adjacent" />
     <disable_collisions link1="${tf_prefix}link_2_aluminum" link2="${tf_prefix}link_3_aluminum" reason="Adjacent" />
     <disable_collisions link1="${tf_prefix}link_3_aluminum" link2="${tf_prefix}link_4_aluminum" reason="Adjacent" />
